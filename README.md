@@ -12,6 +12,20 @@
 
 This repo is not an official LiteFarm project but a personal migration to use a different set of tools and demostrate how cute the Hexagonal Architecture looks when it's used with NestJs and TypeScript.
 
+## Objectives
+
+- use Hexagonal Architecture and Ports and Adapters
+- use NestJs / TypeScript
+- reduce the amount of endpoints than the original project
+- create a structured DB with standardized set of practices throughout its assets 
+- generate unit and component tests with enough functional coverage 
+
+## Out of scope 
+- a 1:1 migration from the actual LiteFarm backend but a rewrite version using different practices and tools 
+- make it useful with the frontend 
+
+
+
 ## Installation
 
 ```bash

@@ -44,6 +44,9 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## Documentation
+Documentation is generated through Swagger, first run locally the project and then go to `http://localhost:<port>/api`
+
 ## Support
 Please give some love and support to [LiteFarm project](https://github.com/LiteFarmOrg/LiteFarm)
 

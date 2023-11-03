@@ -11,7 +11,6 @@ export class UserController {
 
     @Post()
     async createUser(@Body() createUserCommand: CreateUserCommand): Promise<any> {
-        console.log(createUserCommand) // TODO: remove this
         const user = await this.userService.createUser(
             createUserCommand.email,
             createUserCommand.password,

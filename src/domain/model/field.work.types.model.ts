@@ -16,6 +16,6 @@ export function createFieldWorkType(
     label,
     value,
     name,
-    farmId
-  }
+    farmId,
+  };
 }

@@ -10,27 +10,27 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { FieldWorkTypes } from 'src/domain/model/field.work.types.model';
 export class FieldWorkTypesDto {
-    @ApiProperty()
-    fieldWorkTypeId: number;
+  @ApiProperty()
+  fieldWorkTypeId: number;
 
-    @ApiProperty()
-    label: string;
+  @ApiProperty()
+  label: string;
 
-    @ApiProperty()
-    value: string;
+  @ApiProperty()
+  value: string;
 
-    @ApiProperty()
-    name: string;
+  @ApiProperty()
+  name: string;
 
-    @ApiProperty()
-    farmId?: string;
+  @ApiProperty()
+  farmId?: string;
 }
 
 export function createFieldWorkTypes(types: FieldWorkTypes): FieldWorkTypesDto {
-    const dto = new FieldWorkTypesDto();
-    dto.label = types.label;
-    dto.value = types.value;
-    dto.name = types.name;
-    dto.farmId = types.farmId;
-    return dto;
+  const dto = new FieldWorkTypesDto();
+  dto.label = types.label;
+  dto.value = types.value;
+  dto.name = types.name;
+  dto.farmId = types.farmId;
+  return dto;
 }

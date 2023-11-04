@@ -1,22 +1,28 @@
 import { Inject, Injectable } from '@nestjs/common';
-import {User, createUser} from "../../domain/model/user.model";
-import {UserRepository} from "../../domain/user.repository";
+import { User, createUser } from '../../domain/model/user.model';
+import { UserRepository } from '../../domain/user.repository';
+import { UserService as IUserService } from '../user-service.port';
 
 @Injectable()
-export class UserService {
-
-    constructor(@Inject(UserRepository) private readonly userRepository: UserRepository) {}
-    async createUser(	
-        email: string,
-    	  password: string,
-    	  languagePreference: string,
-    	  gender: string,
-    	  birthYear: number,
-    ): Promise<User> {
-        const user = createUser(email, password, languagePreference, gender, birthYear);
-        console.log(user); // TODO: remove this
-        this.userRepository.create(user);
-        return user
-    }
+export class UserService implements IUserService {
+  constructor(
+    @Inject(UserRepository) private readonly userRepository: UserRepository,
+  ) {}
+  async createUser(
+    email: string,
+    password: string,
+    languagePreference: string,
+    gender: string,
+    birthYear: number,
+  ): Promise<User> {
+    const user = createUser(
+      email,
+      password,
+      languagePreference,
+      gender,
+      birthYear,
+    );
+    this.userRepository.create(user);
+    return user;
+  }
 }
-

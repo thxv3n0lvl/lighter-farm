@@ -1,36 +1,35 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsEmail, IsNotEmpty} from "class-validator";
-import { User } from "src/domain/model/user.model";
+import { IsEmail, IsNotEmpty } from 'class-validator';
+import { User } from 'src/domain/model/user.model';
 
-export class CreateUserCommand implements Omit<User,"userId"> {
-	@ApiProperty({
-		required: true
-	})
-	@IsNotEmpty()
-	@IsEmail()
+export class CreateUserCommand implements Omit<User, 'userId'> {
+  @ApiProperty({
+    required: true,
+  })
+  @IsNotEmpty()
+  @IsEmail()
   email: string;
 
-	@ApiProperty({
-		required: true
-	})
-	@IsNotEmpty()
+  @ApiProperty({
+    required: true,
+  })
+  @IsNotEmpty()
   password: string;
 
-	@ApiProperty()
+  @ApiProperty()
   firstName: string;
 
-	@ApiProperty()
+  @ApiProperty()
   lastName: string;
 
-	@ApiProperty()
+  @ApiProperty()
   gender: string;
 
-	@ApiProperty({
-		example: 1970
-	})
+  @ApiProperty({
+    example: 1970,
+  })
   birthYear: number;
 
-	@ApiProperty()
+  @ApiProperty()
   languagePreference: string;
-};
-
+}

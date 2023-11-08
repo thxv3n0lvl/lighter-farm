@@ -1,9 +1,15 @@
 import { Module } from '@nestjs/common';
 import { UserController } from './rest/user.controller';
-import { ApplicationModule } from 'src/application/application.module';
+import { UserService } from "../application/user-service.port";
+import { UserService as UserServiceImpl } from "../application/services/user.service";
+import { UserRepository } from 'src/domain/user.repository';
+import { UserPersistence } from './persistence/user.persistence';
 
 @Module({
   controllers: [UserController],
-  imports: [ApplicationModule],
+  providers: [
+    {provide: UserService, useClass: UserServiceImpl},
+    {provide: UserRepository, useClass: UserPersistence},
+  ],
 })
 export class InfrastructureModule {}

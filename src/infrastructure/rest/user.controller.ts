@@ -1,5 +1,5 @@
-import { Body, Controller, Post } from '@nestjs/common';
-import { UserService } from '../../application/services/user.service';
+import { Body, Controller, Inject, Post } from '@nestjs/common';
+import { UserService } from '../../application/user-service.port';
 import { CreateUserCommand } from './user.dto';
 
 @Controller({
@@ -7,7 +7,7 @@ import { CreateUserCommand } from './user.dto';
   version: ['1'],
 })
 export class UserController {
-  constructor(readonly userService: UserService) {} // TODO: check how to use IUserService instead the UserService concrete class.
+  constructor(@Inject(UserService) private readonly userService: UserService) {} // TODO: check how to use IUserService instead the UserService concrete class.
 
   @Post()
   async createUser(@Body() createUserCommand: CreateUserCommand): Promise<any> {

@@ -1,0 +1,14 @@
+version: "3"
+
+volumes:
+  postgres-data:
+    driver: local
+services:
+  db:
+    image: postgres:12.5
+    ports:
+      - 5432:5432 # TODO: set port from env file
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: 12341234 # TODO: setup password from env file 

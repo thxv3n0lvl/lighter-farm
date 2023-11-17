@@ -1,6 +1,6 @@
 import { Body, Controller, Inject, Post } from '@nestjs/common';
 import { UserService } from '../../application/user-service.port';
-import { CreateUserCommand } from './user.dto';
+import { CreateUserCommand } from './drivers/user.dto';
 
 @Controller({
   path: 'user',

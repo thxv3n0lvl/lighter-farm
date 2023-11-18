@@ -13,7 +13,7 @@ import { User } from './persistence/user.entity';
 
 @Module({})
 export class InfrastructureModule {
-  static register(_: Record<string, any>): DynamicModule {
+  static register(): DynamicModule { 
     return {
       module: InfrastructureModule,
       controllers: [UserController, AuthController],

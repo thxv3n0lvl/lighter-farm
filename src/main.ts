@@ -15,7 +15,6 @@ async function bootstrap() {
   SwaggerModule.setup('api', app, document);
 
   app.useGlobalPipes(new ValidationPipe({
-    transform: true,
     whitelist: true,
   }));
   await app.listen(3001); // TODO: put the port in the env file

@@ -8,6 +8,7 @@ export interface UserService {
     gender: string,
     birthYear: number,
   ) => Promise<User>;
+  findByEmail: (email: string) => Record<string, any>
 }
 
 export const UserService = Symbol('UserService');

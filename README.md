@@ -29,6 +29,11 @@ This repo is not an official LiteFarm project but a personal migration to use a 
 ## Installation
 
 ```bash
+# spin up the DB using docker
+$ docker compose up  
+```
+
+```bash
 $ npm install
 ```
 

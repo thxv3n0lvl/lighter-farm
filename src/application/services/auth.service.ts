@@ -7,7 +7,6 @@ export class AuthService {
 	constructor(@Inject(UserService) private readonly userService: UserService, private readonly jwtService: JwtService) {}
 
 	async signIn(email: string, password: string) {
-		debugger;
 		const user = await this.userService.findByEmail(email);
 		if(user?.password !== password) {
 			throw Error("Wrong credentials");

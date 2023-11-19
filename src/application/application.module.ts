@@ -5,10 +5,7 @@ import { DomainModule } from 'src/domain/domain.module';
 
 @Module({
   imports: [DomainModule],
-  providers: [
-    UserService,
-    AuthService,
-  ],
-  exports: [UserService,AuthService],
+  providers: [UserService, AuthService],
+  exports: [UserService, AuthService],
 })
 export class ApplicationModule {}

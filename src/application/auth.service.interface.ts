@@ -1,5 +1,5 @@
 export interface AuthService {
-	signIn: (email: string, password: string) => any;
-};
+  signIn: (email: string, password: string) => any;
+}
 
-export const AuthService = Symbol.for("AuthService");
+export const AuthService = Symbol.for('AuthService');

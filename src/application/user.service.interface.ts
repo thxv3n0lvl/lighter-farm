@@ -8,7 +8,7 @@ export interface IUserService {
     gender: string,
     birthYear: number,
   ) => Promise<User>;
-  findByEmail: (email: string) => Record<string, any>
+  findByEmail: (email: string) => Record<string, any>;
 }
 
 export const UserService = Symbol.for('UserService');

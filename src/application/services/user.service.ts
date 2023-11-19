@@ -38,8 +38,8 @@ export class UserService implements IUserService {
       password: 'guess',
     },
   ];
-  
+
   async findByEmail(email: string) {
-    return this.users.find(user => user.email === email);  
+    return this.users.find((user) => user.email === email);
   }
 }

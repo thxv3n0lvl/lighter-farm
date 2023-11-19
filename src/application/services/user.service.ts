@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { User, createUser } from '../../domain/model/user.model';
 import { UserRepository } from '../../domain/user.repository';
-import { UserService as IUserService } from '../user-service.port';
+import { IUserService } from '../user.service.interface';
 
 @Injectable() // TODO: figure out how to remove nestjs dependencies
 export class UserService implements IUserService {

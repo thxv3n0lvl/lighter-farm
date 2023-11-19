@@ -1,5 +1,5 @@
 import { Body, Controller, Inject, Post } from '@nestjs/common';
-import { UserService } from '../../application/user-service.port';
+import { UserService, IUserService } from '../../application/user.service.interface';
 import { CreateUserCommand } from './drivers/user.dto';
 
 @Controller({
@@ -7,7 +7,7 @@ import { CreateUserCommand } from './drivers/user.dto';
   version: ['1'],
 })
 export class UserController {
-  constructor(@Inject(UserService) private readonly userService: UserService) {} // TODO: check how to use IUserService instead the UserService concrete class.
+  constructor(@Inject(UserService) private readonly userService: IUserService) {}
 
   @Post()
   async createUser(@Body() createUserCommand: CreateUserCommand): Promise<any> {

@@ -1,6 +1,6 @@
 import { User } from 'src/domain/model/user.model';
 
-export interface UserService {
+export interface IUserService {
   createUser: (
     email: string,
     password: string,
@@ -11,4 +11,4 @@ export interface UserService {
   findByEmail: (email: string) => Record<string, any>
 }
 
-export const UserService = Symbol('UserService');
+export const UserService = Symbol.for('UserService');

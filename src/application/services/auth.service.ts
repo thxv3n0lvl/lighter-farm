@@ -1,10 +1,10 @@
 import { Inject, Injectable } from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
-import { UserService } from "../user-service.port";
+import { UserService, IUserService } from '../user.service.interface';
 
 @Injectable()
 export class AuthService {
-	constructor(@Inject(UserService) private readonly userService: UserService, private readonly jwtService: JwtService) {}
+	constructor(@Inject(UserService) private readonly userService: IUserService, private readonly jwtService: JwtService) {}
 
 	async signIn(email: string, password: string) {
 		const user = await this.userService.findByEmail(email);

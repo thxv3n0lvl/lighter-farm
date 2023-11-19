@@ -1,6 +1,6 @@
 import { Body, Controller, Inject, Post } from "@nestjs/common";
 import { LoginByEmailAndPasswordCommand } from "./drivers/login.command";
-import { AuthService } from '../../application/auth-service.port';
+import { AuthService } from '../../application/auth.service.interface';
 
 @Controller("auth")
 export class AuthController {

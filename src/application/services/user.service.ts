@@ -26,20 +26,8 @@ export class UserService implements IUserService {
     return user;
   }
 
-  private readonly users = [
-    {
-      userId: 1,
-      email: 'john',
-      password: 'changeme',
-    },
-    {
-      userId: 2,
-      email: 'maria',
-      password: 'guess',
-    },
-  ];
-
   async findByEmail(email: string) {
-    return this.users.find((user) => user.email === email);
+    throw Error('no implemented yet');
+    // return this.users.find((user) => user.email === email);
   }
 }

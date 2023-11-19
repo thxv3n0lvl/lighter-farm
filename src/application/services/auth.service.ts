@@ -1,24 +1,24 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Inject, Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { UserService, IUserService } from '../user.service.interface';
+import { UserRepository } from 'src/domain/user.repository';
 
 @Injectable()
 export class AuthService {
   constructor(
-    @Inject(UserService) private readonly userService: IUserService,
+    @Inject(UserRepository) private readonly userRepository: UserRepository,
     private readonly jwtService: JwtService,
   ) {}
 
   async signIn(email: string, password: string) {
-    const user = await this.userService.findByEmail(email);
+    const user = await this.userRepository.findByEmail(email);
     if (user?.password !== password) {
-      throw Error('Wrong credentials');
+      throw new UnauthorizedException();
     }
 
     const payload = { sub: user.userId, username: user.email };
 
     return {
-      // access_token: this.jwtService.signAsync(payload),
+      access_token: await this.jwtService.signAsync(payload),
     };
   }
 }

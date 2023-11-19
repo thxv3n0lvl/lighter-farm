@@ -1,4 +1,4 @@
-export interface AuthService {
+export interface IAuthService {
   signIn: (email: string, password: string) => any;
 }
 

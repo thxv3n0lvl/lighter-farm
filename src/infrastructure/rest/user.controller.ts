@@ -1,9 +1,11 @@
-import { Body, Controller, Inject, Post } from '@nestjs/common';
+import { Body, Controller, Get, Inject, Post, Request, UseGuards } from '@nestjs/common';
 import {
   UserService,
   IUserService,
 } from '../../application/user.service.interface';
 import { CreateUserCommand } from './drivers/user.dto';
+import { User } from 'src/domain/model/user.model';
+import { AuthGuard } from './auth.guard';
 
 @Controller({
   path: 'user',
@@ -15,7 +17,7 @@ export class UserController {
   ) {}
 
   @Post()
-  async createUser(@Body() createUserCommand: CreateUserCommand): Promise<any> {
+  async createUser(@Body() createUserCommand: CreateUserCommand): Promise<User> {
     const user = await this.userService.createUser(
       createUserCommand.email,
       createUserCommand.password,
@@ -26,4 +28,11 @@ export class UserController {
 
     return { ...user };
   }
+
+  @UseGuards(AuthGuard)
+  @Get('profile')
+  async profile(@Request() req) {
+    return await req.user;
+  }
+  
 }

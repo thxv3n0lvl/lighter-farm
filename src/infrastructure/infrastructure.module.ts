@@ -10,7 +10,9 @@ import { AuthService as AuthServiceImpl } from '../application/services/auth.ser
 import { UserRepository } from 'src/domain/user.repository';
 import { UserPersistence } from './persistence/user.persistence';
 import { User } from './persistence/user.entity';
-import {secret} from './rest/constants';
+import { secret } from './rest/constants';
+import { APP_GUARD } from '@nestjs/core';
+import { AuthGuard } from './rest/auth.guard';
 
 @Module({})
 export class InfrastructureModule {
@@ -40,6 +42,7 @@ export class InfrastructureModule {
       providers: [
         { provide: UserService, useClass: UserServiceImpl },
         { provide: AuthService, useClass: AuthServiceImpl },
+        { provide: APP_GUARD, useClass: AuthGuard },
         { provide: UserRepository, useClass: UserPersistence },
       ],
     };
